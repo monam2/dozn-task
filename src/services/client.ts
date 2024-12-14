@@ -1,3 +1,5 @@
+import axios, { AxiosRequestHeaders, AxiosResponse } from "axios";
+
 /**
  * API 요청 기본 클라이언트 설정
  *
@@ -10,14 +12,15 @@
  * - 401에러 반환 시 로그아웃 후 리다이렉트
  */
 
-import axios, { AxiosRequestHeaders, AxiosResponse } from "axios";
-
 const BASE_URL = "https://admin.octover.co.kr";
 const API_PATH = "/admin/api";
 
-const instance = axios.create({
+export const instance = axios.create({
   baseURL: BASE_URL + API_PATH,
   timeout: 5000,
+  headers: {
+    "Content-Type": "application/json",
+  },
 });
 
 instance.interceptors.request.use(
