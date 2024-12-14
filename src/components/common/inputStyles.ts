@@ -10,11 +10,11 @@ export const BASE_INPUT_STYLES = `
   w-full
   rounded-[10px]
   border
-  font-normal
-  transition-all
-  duration-200
-  px-4
-  py-3
+  border-1
+  font-semibold
+  text-xl
+  px-6
+  py-1
 `;
 
 // Input 크기 스타일
@@ -25,7 +25,7 @@ export const INPUT_SIZE_STYLES: Record<InputSize, string> = {
 
 // Input 색상 상태 스타일
 export const INPUT_COLOR_STYLES = {
-  default: "border-gray-300 text-gray-500",
-  focus: "border-primary text-gray-500",
-  error: "border-error text-error",
+  default: "border-gray-100 text-black",
+  focus: "outline-primary outline-2 text-black",
+  error: "outline-error outline-2 text-error",
 };

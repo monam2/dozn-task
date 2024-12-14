@@ -42,10 +42,10 @@ const BaseInput = memo(function BaseInput({
   return (
     <div className="flex flex-col">
       <input
-        className={`${inputStyles} focus:outline-none focus:${INPUT_COLOR_STYLES.focus}`}
+        className={`${inputStyles} focus:${INPUT_COLOR_STYLES.focus}`}
         {...props}
       />
-      {bottomLabel && <span className={bottomLabelStyles}>{bottomLabel}</span>}
+      {isError && <span className={bottomLabelStyles}>{bottomLabel}</span>}
     </div>
   );
 });
