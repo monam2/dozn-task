@@ -14,7 +14,7 @@ export const BASE_BUTTON_STYLES = `
   items-center
   justify-center
   rounded-[10px]
-  font-normal
+  font-semibold
   transition-all
   duration-200
   disabled:opacity-50

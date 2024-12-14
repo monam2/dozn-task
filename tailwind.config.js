@@ -12,9 +12,9 @@ export default {
         "heading-2": "48px",
         "heading-3": "30px",
         "heading-4": "24px",
-        "text-1": "18px",
-        "text-2": "16px",
-        "text-3": "14px",
+        "content-1": "18px",
+        "content-2": "16px",
+        "content-3": "14px",
       },
       colors: {
         primary: "#007AFE",
