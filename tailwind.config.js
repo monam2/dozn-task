@@ -7,7 +7,7 @@ export default {
         sans: ["Noto Sans KR", "sans-serif"],
       },
       fontSize: {
-        root: "10px",
+        root: "12px",
         "heading-1": "52px",
         "heading-2": "48px",
         "heading-3": "30px",
@@ -42,7 +42,6 @@ export default {
           500: "rgba(255, 255, 255, 0.5)",
           650: "rgba(255, 255, 255, 0.65)",
           750: "rgba(255, 255, 255, 0.75)",
-          900: "#FFFFFF",
         },
         gray: {
           DEFAULT: "#9BA3B7",
@@ -54,8 +53,6 @@ export default {
           500: "#61697F",
           600: "#475069",
           700: "#323B54",
-          800: "#20283E",
-          900: "#121829",
         },
       },
       borderRadius: {
