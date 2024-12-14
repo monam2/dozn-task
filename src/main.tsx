@@ -1,5 +1,5 @@
 import { createRoot } from "react-dom/client";
-import "@/styles/index.css";
+import "@/styles/global.css";
 import Providers from "@/providers/index.tsx";
 import RouteApp from "./routes/index.tsx";
 
