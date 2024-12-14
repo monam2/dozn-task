@@ -1,3 +1,10 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@import url("//fonts.googleapis.com/earlyaccess/notosanskr.css");
+
+:root {
+  font-size: 10px;
+  font-family: "Noto Sans KR", sans-serif;
+}
