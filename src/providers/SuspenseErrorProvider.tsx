@@ -2,6 +2,8 @@ import { ReactNode, Suspense } from "react";
 import { ErrorBoundary } from "react-error-boundary";
 
 /**
+ * !!굳이 필요하지 않다. 따로 에러처리 없이 로그인 페이지로 리다이렉트하면 됨.
+ *
  * Error Boundary와 Suspense를 관리하는 Provider
  *
  *
@@ -17,11 +19,7 @@ function LoadingTempComponents() {
   return <div>Loading...</div>;
 }
 
-export default function SuspenseErrorProvider({
-  children,
-}: {
-  children: ReactNode;
-}) {
+export default function SuspenseErrorProvider({ children }: { children: ReactNode }) {
   return (
     <ErrorBoundary FallbackComponent={ErrorTempComponents}>
       <Suspense fallback={<LoadingTempComponents />}>{children}</Suspense>
