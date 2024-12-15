@@ -17,11 +17,13 @@ export default {
         "content-3": "14px",
       },
       colors: {
-        primary: "#007AFE",
+        primary: "#007AFF",
         "primary-hover": "#006EE6",
         background: "#F4FAFF",
         footer: "#39364E",
         error: "#CD212A",
+        "table-header": "#E5F2FF",
+        "table-headerText": "#0055B3",
         black: {
           DEFAULT: "#302F33",
           100: "rgba(0, 0, 0, 0.1)",

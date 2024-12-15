@@ -33,9 +33,9 @@ export const instance = axios.create({
 instance.interceptors.request.use(
   (config) => {
     // api키를 받는지, 액세스 토큰을 받는지는 확인 필요
-    const { apiKey, exp, logout } = useAuthStore.getState();
+    const { accessToken, exp, logout } = useAuthStore.getState();
 
-    if (exp && !isTokenExpired(exp)) {
+    if (exp && isTokenExpired(exp)) {
       // 토큰 정보가 없거나 토큰이 만료되었다면 로그아웃
       alert("로그인 세션이 만료되었습니다. 다시 로그인해주세요.");
       logout();
@@ -43,7 +43,7 @@ instance.interceptors.request.use(
       return Promise.reject(new Error("로그인 오류"));
     }
 
-    (config.headers as AxiosRequestHeaders).Authorization = `Bearer ${apiKey}`;
+    (config.headers as AxiosRequestHeaders).Authorization = `Bearer ${accessToken}`;
     return config;
   },
   (error) => {

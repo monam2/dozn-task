@@ -1,4 +1,4 @@
-import { ChangeEvent, FormEvent, useEffect, useState } from "react";
+import { ChangeEvent, FormEvent, useState } from "react";
 import { useMutation } from "@tanstack/react-query";
 import { validateId, validatePassword } from "@/utils/validate";
 import { postLoginByIdPw } from "@/services";
@@ -91,11 +91,12 @@ export default function useLoginForm() {
       { admUserId, userPw },
       {
         onSuccess: (data) => {
-          const payload = decodeJwt(data);
+          const accessToken = data?.data.data.accessToken;
+          const payload = decodeJwt(accessToken);
           if (!payload) return;
 
           const { apiKey, exp, identification } = payload;
-          login({ apiKey, exp, identification }); // authStore에 토큰 정보 저장
+          login({ accessToken, apiKey, exp, identification }); // authStore에 토큰 정보 저장
           setIsLoading(false);
           navigate("/list");
         },
