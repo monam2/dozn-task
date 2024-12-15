@@ -1,3 +1,4 @@
+import HistoryPage from "@/pages/HistoryPage";
 import ListPage from "@/pages/ListPage";
 import LoginPage from "@/pages/LoginPage";
 import { Route, Routes } from "react-router";
@@ -15,7 +16,7 @@ export default function RouteApp() {
     <Routes>
       <Route path="/" element={<LoginPage />} />
       <Route path="/list" element={<ListPage />} />
-      {/* <Route path="/" element={} /> */}
+      <Route path="/history" element={<HistoryPage />} />
     </Routes>
   );
 }
