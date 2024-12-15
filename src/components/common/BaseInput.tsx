@@ -14,38 +14,43 @@ import {
 
 export interface BaseInputProps extends InputHTMLAttributes<HTMLInputElement> {
   inputSize?: InputSize; // 크기 : HTML 기본 size 속성과 충돌 방지
-  isError?: boolean; // 에러 여부
+  error?: string; // 에러 여부 ( 유효성 검증 시 "비밀번호를 확인해 주세요." 와 같이 string으로 준다. )
   className?: string; // 추가 클래스
-  bottomLabel?: string; // 에러 발생 시 메시지지
+  bottomLabel?: string; // 에러 발생 시 메시지
+  id?: string; // label에 붙일 아이디
 }
 
 const BaseInput = memo(function BaseInput({
   inputSize = "full",
-  isError = false,
+  error = "",
   bottomLabel,
   className,
+  id,
   ...props
 }: BaseInputProps) {
+  /** 공통 인풋 컴포넌트 스타일 정의 - default / error  */
   const inputStyles = useMemo(() => {
-    const colorStyles = isError
+    const colorStyles = error
       ? INPUT_COLOR_STYLES.error // 에러
       : INPUT_COLOR_STYLES.default; // 기본
     return `${BASE_INPUT_STYLES} ${INPUT_SIZE_STYLES[inputSize]} ${colorStyles} ${
       className || ""
     }`;
-  }, [inputSize, isError, className]);
+  }, [inputSize, error, className]);
 
-  const bottomLabelStyles = isError
+  /** 에러 라벨 스타일 정의 */
+  const bottomLabelStyles = error
     ? "text-error text-base mt-1"
     : "text-gray text-base mt-1";
 
   return (
     <div className="flex flex-col">
       <input
+        id={id}
         className={`${inputStyles} focus:${INPUT_COLOR_STYLES.focus}`}
         {...props}
       />
-      {isError && <span className={bottomLabelStyles}>{bottomLabel}</span>}
+      {error && <span className={bottomLabelStyles}>{bottomLabel}</span>}
     </div>
   );
 });

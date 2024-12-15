@@ -26,6 +26,6 @@ export const INPUT_SIZE_STYLES: Record<InputSize, string> = {
 // Input 색상 상태 스타일
 export const INPUT_COLOR_STYLES = {
   default: "border-gray-100 text-black",
-  focus: "outline-primary outline-2 text-black",
-  error: "outline-error outline-2 text-error",
+  focus: "focus:outline focus:outline-2 focus:outline-primary text-black",
+  error: "focus:outline focus:outline-2 focus:outline-error text-black",
 };
