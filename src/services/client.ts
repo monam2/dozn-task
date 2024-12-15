@@ -35,7 +35,7 @@ instance.interceptors.request.use(
     // api키를 받는지, 액세스 토큰을 받는지는 확인 필요
     const { apiKey, exp, logout } = useAuthStore.getState();
 
-    if (!apiKey || !isTokenExpired(exp)) {
+    if (exp && !isTokenExpired(exp)) {
       // 토큰 정보가 없거나 토큰이 만료되었다면 로그아웃
       alert("로그인 세션이 만료되었습니다. 다시 로그인해주세요.");
       logout();
@@ -55,7 +55,7 @@ instance.interceptors.response.use(
   (response) => response,
   (error) => {
     if (error.response?.status === 401) {
-      alert("로그인 세션이 만료되었습니다. 다시 로그인해주세요.");
+      alert("로그인 오류가 발생했습니다. 다시 로그인해주세요.");
       useAuthStore.getState().logout();
       window.location.href = "/";
     }

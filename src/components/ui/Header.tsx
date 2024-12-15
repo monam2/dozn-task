@@ -17,7 +17,12 @@ export default function Header() {
 
   return (
     <div className="h-[100px] bg-white flex justify-between items-center px-[15px]">
-      <h1 className="text-heading-2 text-primary font-sans font-extrabold">Octover</h1>
+      <h1
+        onClick={() => navigate("/list")}
+        className="text-heading-2 text-primary font-sans font-extrabold cursor-pointer"
+      >
+        Octover
+      </h1>
       {identification ? (
         <BaseButton onClick={handleLogout} color="primary" size="md">
           로그아웃
