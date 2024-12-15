@@ -27,4 +27,4 @@ type ApiData = {
 };
 
 /** 스크래핑 데이터 */
-type ScrpDescriptionData = ApiData | any; // 스크래핑 결과라고만 되어있는데 나중에 수정하기
+type ScrpDescriptionData = unknown; // 스크래핑 결과라고만 되어있는데 나중에 수정하기
