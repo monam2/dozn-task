@@ -8,16 +8,10 @@ export const postLoginByIdPw = async ({
   admUserId: AdmUserId;
   userPw: UserPassword;
 }) => {
-  const response = await instance.post<LoginResponse>("/recruit/login-check", {
+  return instance.post<LoginResponse>("/recruit/login-check", {
     admUserId,
     userPw,
   });
-
-  const ok = !!response.data.errYn;
-  if (!ok) {
-    throw new Error("로그인 중 에러가 발생했습니다.");
-  }
-  return response.data.data.accessToken;
 };
 
 /** api 목록을 조회하는 함수
