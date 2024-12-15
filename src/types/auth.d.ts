@@ -6,7 +6,6 @@ type AccessToken = string;
 type AdmUserId = string;
 type UserPassword = string;
 type IsDozn = boolean;
-type UserId = string;
 
 type LoginFailCount = string;
 
@@ -16,7 +15,9 @@ interface LoginResponseDto {
 }
 
 interface AccessTokenPayload {
-  accessToken: AccessToken;
-  userId: UserId;
+  apiKey: string;
+  identification: string;
   isDozn: IsDozn;
+  exp: string;
+  iat: string;
 }

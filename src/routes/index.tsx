@@ -1,3 +1,4 @@
+import ListPage from "@/pages/ListPage";
 import LoginPage from "@/pages/LoginPage";
 import { Route, Routes } from "react-router";
 
@@ -13,7 +14,7 @@ export default function RouteApp() {
   return (
     <Routes>
       <Route path="/" element={<LoginPage />} />
-      {/* <Route path="/" element={} /> */}
+      <Route path="/list" element={<ListPage />} />
       {/* <Route path="/" element={} /> */}
     </Routes>
   );
