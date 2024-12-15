@@ -1,7 +1,6 @@
 import { ReactNode } from "react";
 import { QueryProvider } from "./QueryProvider";
 import RouteProivder from "./RouteProivder";
-import SuspenseErrorProvider from "./SuspenseErrorProvider";
 
 /**
  * 전역 Provider 관리 컴포넌트
@@ -10,16 +9,14 @@ import SuspenseErrorProvider from "./SuspenseErrorProvider";
  *
  * 순서
  * 1. 리액트 쿼리 관련 프로바이더
- * 2. 에러 바운더리 & 서스펜스 프로바이더
- * 3. 리액트 라우터 관련 프로바이더
+ * 2. 리액트 라우터 관련 프로바이더
+ * (에러바운더리는 제거)
  */
 
 export default function Providers({ children }: { children: ReactNode }) {
   return (
     <QueryProvider>
-      <SuspenseErrorProvider>
-        <RouteProivder>{children}</RouteProivder>
-      </SuspenseErrorProvider>
+      <RouteProivder>{children}</RouteProivder>
     </QueryProvider>
   );
 }
