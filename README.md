@@ -38,12 +38,27 @@
 
 ## 프로젝트 실행
 
-- https://github.com/monam2/dozn-task 를 clone
-  ```
-  cd dozn-task
-  npm install
-  npm run dev
-  ```
+### 1. git clone
+
+https://github.com/monam2/dozn-task 를 clone
+
+```
+cd dozn-task
+
+npm install
+
+npm run dev
+```
+
+### 2. docker
+
+```
+docker login
+
+docker pull monam2/dozn-task:latest
+
+docker run -d -p 3000:3000 monam2/dozn-task:latest
+```
 
 ## 개발 전 고려사항 및 메모
 
