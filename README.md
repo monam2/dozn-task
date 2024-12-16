@@ -40,7 +40,7 @@
 
 ### 1. git clone
 
-https://github.com/monam2/dozn-task 를 clone
+https://github.com/monam2/dozn-task.git 을 clone
 
 ```
 cd dozn-task
