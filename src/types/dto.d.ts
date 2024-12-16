@@ -30,4 +30,4 @@ type ApiData = {
 type ScrpDescriptionData = unknown; // 스크래핑 결과라고만 되어있는데 나중에 수정하기
 
 /** API 호출내역 개별 데이터 */
-type ApiHisotryData = { historyId: number; timestamp: string; isBookmarked: boolean } & ApiData;
+type ApiHistoryData = { historyId: number; timestamp: string; isBookmarked: boolean } & ApiData;

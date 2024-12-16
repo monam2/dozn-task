@@ -8,8 +8,8 @@ import { createJSONStorage, persist } from "zustand/middleware";
  */
 
 interface HistoryStore {
-  historyList: ApiHisotryData[];
-  add: (history: ApiHisotryData) => void;
+  historyList: ApiHistoryData[];
+  add: (history: ApiHistoryData) => void;
   bookmark: (historyId: number) => void;
   undoBookmark: (hisotryId: number) => void;
 }

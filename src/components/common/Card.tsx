@@ -8,7 +8,7 @@ import { BookmarkIcon } from "./BookmarkIcon";
  */
 
 interface CardProps {
-  history: ApiHisotryData;
+  history: ApiHistoryData;
   buttonText: string;
   bookmark: (historyId: number) => void;
   undoBookmark: (historyId: number) => void;
