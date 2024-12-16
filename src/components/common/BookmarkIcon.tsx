@@ -1,10 +1,10 @@
-export const BookmarkIcon = ({ isActive }: { isActive: boolean }) => (
+export const BookmarkIcon = ({ isBookmarked }: { isBookmarked: boolean }) => (
   <svg
     xmlns="http://www.w3.org/2000/svg"
     viewBox="0 0 24 24"
     fill="currentColor"
     className={`w-7 h-8 transition-colors duration-200 ${
-      isActive ? "text-blue-500" : "text-gray-200"
+      isBookmarked ? "text-blue-500" : "text-gray-200"
     }`}
   >
     <path

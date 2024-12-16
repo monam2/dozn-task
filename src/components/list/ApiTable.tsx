@@ -2,6 +2,7 @@ import { useScrpData } from "@/react-query/querys";
 import BaseButton from "../common/BaseButton";
 import { useEffect, useState } from "react";
 import { openPopup } from "@/utils/openPopup";
+import useHistoryStore from "@/store/history";
 
 /**
  * 사용 가능 API 테이블 컴포넌트
@@ -41,14 +42,22 @@ function TableBody({ apiList }: ApiTableProps) {
 
 /** 테이블 행 */
 function TableRow({ item }: { item: ApiData }) {
+  const { add, historyList } = useHistoryStore(); // api 호출 내역 관리 스토어
   const [scrpParams, setScrpParams] = useState<{ mdulCustCd: string; apiCd: string } | null>(null);
   const { data } = useScrpData(scrpParams ?? { mdulCustCd: "", apiCd: "" });
 
   /** 스크래핑 데이터 호출 핸들러 -> 스크래핑 파라미터 변경
    * -> useScrpData에서 enabled로 두 파라미터가 존재할 때만 받아오게 해야함
+   * + api 호출 내역 추가
    */
-  const handleOnClick = (mdulCustCd: string, apiCd: string) => {
-    setScrpParams({ mdulCustCd, apiCd });
+  const handleOnClick = (item: ApiData) => {
+    setScrpParams({ mdulCustCd: item.mdulCustCd, apiCd: item.apiCd });
+    add({
+      ...item,
+      timestamp: String(new Date().getTime()),
+      isBookmarked: false,
+      historyId: historyList.length + 1,
+    }); // api 호출 내역 추가 - 타임스탬프, 북마크 여부
   };
 
   // handleOnClick에서 변경된 scrpParams를 의존
@@ -67,7 +76,7 @@ function TableRow({ item }: { item: ApiData }) {
       <td className="border border-gray-100 px-4 py-2 align-top whitespace-pre-wrap">
         {/* 호출하기 버튼 - 스크래핑 데이터 호출 */}
         <BaseButton
-          onClick={() => handleOnClick(item.mdulCustCd, item.apiCd)}
+          onClick={() => handleOnClick(item)}
           className="bg-primary"
           size="sm"
           color="primary"
